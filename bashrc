@@ -65,10 +65,11 @@ GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUPSTREAM="auto"
 
 if [ "$color_prompt" = yes ]; then
-    PROMPT_COMMAND='__git_ps1 "\[$Blue\]\u@\h\[$Color_Off\]:\[$BBlue\]\w\[$Yellow\]" "\[$Color_Off\]\$ "'
+    PS1="\[$Blue\]\u@\h\[$Color_Off\]:\[$BBlue\]\w\[$Yellow\]\$(__git_ps1)\[$Color_Off\]\$ "
 else
     PS1='\u@\h:\w\$ '
 fi
+# http://stackoverflow.com/questions/3058325/what-is-the-difference-between-ps1-and-prompt-command
 # PROMPT_COMMAND='__git_ps1 ""${PS1}""'
 unset color_prompt force_color_prompt
 
