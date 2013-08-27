@@ -1,0 +1,14 @@
+alias ca='vi ~/.bash/bash_aliases'
+alias src='source ~/.bashrc'
+
+alias l="ls -B --ignore='*.pyc'"
+alias ll='ls -l -B'
+alias la='ls -a'
+
+alias ..='cd ..'
+
+alias rm='rm -i'
+alias vi='vim'
+
+alias u="amixer set Master 5%+ | grep -o '\[.*%\]'"
+alias d="amixer set Master 5%- | grep -o '\[.*%\]'"

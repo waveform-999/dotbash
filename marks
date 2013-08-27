@@ -1,0 +1,37 @@
+# http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
+#
+# four functions: jump, mark, unmark, marks
+#
+# mark xxx: adds sym link xxx to current dir to $MARKPATH
+# jump xxx: cd to the dir referred to as xxx
+# unmark xxx: remove sym link xxx
+# marks: list all marks
+
+export MARKPATH=$HOME/.marks
+
+function jump { 
+    cd -P $MARKPATH/$1 2>/dev/null || echo "No such mark: $1"
+}
+function mark { 
+    mkdir -p $MARKPATH; ln -s $(pwd) $MARKPATH/$1
+}
+function unmark { 
+    rm -i $MARKPATH/$1 
+}
+function marks {
+    ls -l $MARKPATH | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
+}
+
+
+# Completion using available marks
+# http://stackoverflow.com/questions/803653/bash-completion-for-certain-types-of-files-in-a-special-directory
+function _marks_show {
+    local cur=${COMP_WORDS[COMP_CWORD]}
+    local marks=$(find $MARKPATH -type l -printf "%f\n")
+    COMPREPLY=($( compgen -W "${marks[@]}" -- "$cur" ) )
+    }
+complete -o default -o nospace -F _marks_show jump
+complete -o default -o nospace -F _marks_show unmark
+
+alias j=jump
+alias m=mark
