@@ -101,7 +101,6 @@ source ~/.bash/marks
 # use a fixed socket with ssh-agent -a /tmp/$USER.agent : add this
 # to an autostart (~/.kde/Autostart/ssh-agent), followed by ssh-add.
 # export SSH_AUTH_SOCK=/tmp/$USER.agent
-
 source ~/.bash/agent-ssh
 
 # Fix for 256 colors in screen / vim
@@ -121,8 +120,6 @@ export EDITOR=`type -P vim`
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
-alias v='vim'
-alias vi='vim'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -176,6 +173,8 @@ function canopy_wrapper {
     fi
 }
 
+alias v='vim'
+alias vi='vim'
 alias vim="canopy_wrapper vim"
 alias gvim="canopy_wrapper gvim"
 alias vimdiff="canopy_wrapper vimdiff"
