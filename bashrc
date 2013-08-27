@@ -43,7 +43,8 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
+source ~/.bash/bash-colors.sh
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -56,11 +57,19 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+# put git info in prompt
+source ~/.bash/git-prompt.sh
+# show dirty status
+GIT_PS1_SHOWDIRTYSTATE=1
+# show divergence from upstream
+GIT_PS1_SHOWUPSTREAM="auto"
+
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PROMPT_COMMAND='__git_ps1 "\[$Blue\]\u@\h\[$Color_Off\]:\[$BBlue\]\w\[$Yellow\]" "\[$Color_Off\]\$ "'
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='\u@\h:\w\$ '
 fi
+# PROMPT_COMMAND='__git_ps1 ""${PS1}""'
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
@@ -76,12 +85,12 @@ esac
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
 
-    #alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
 fi
 
 # marks (quicker cd)
