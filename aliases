@@ -6,6 +6,7 @@ alias ll='ls -l -B'
 alias la='ls -a'
 
 alias ..='cd ..'
+alias -- -='cd -'
 
 alias rm='rm -i'
 alias vi='vim'
