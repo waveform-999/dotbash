@@ -16,3 +16,24 @@ alias d="amixer set Master 5%- | grep -o '\[.*%\]'"
 alias armory="python /usr/share/armory/ArmoryQt.py --offline"
 
 alias radio3="mplayer -playlist http://www.bbc.co.uk/radio/listen/live/r3_aaclca.pls"
+
+function make_ssh_tunnel {
+    # make a tunnel for rdesktop to go through
+    # run it in the background and return the socket file
+    # https://stackoverflow.com/questions/2241063/bash-script-to-setup-a-temporary-ssh-tunnel
+    socket_file='/tmp/rdesktop_ssh_socket'
+    ssh -C -L 3388:see4-82:3389 eeaol@gw -Nfo ExitOnForwardFailure=yes -M -S $socket_file
+    }
+
+function exit_ssh_tunnel {
+    # exit the ssh tunnel created with make_ssh_tunnel
+    ssh -S $socket_file -O exit eeaol@gw
+    }
+
+function rdesktop_command {
+    make_ssh_tunnel
+    rdesktop localhost:3388 -d DS -u eeaol -a 16 -g 1024x600 -P -x modem -z
+    exit_ssh_tunnel
+    }
+
+alias piv='rdesktop_command'
