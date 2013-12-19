@@ -12,3 +12,7 @@ alias vi='vim'
 
 alias u="amixer set Master 5%+ | grep -o '\[.*%\]'"
 alias d="amixer set Master 5%- | grep -o '\[.*%\]'"
+
+alias armory="python /usr/share/armory/ArmoryQt.py --offline"
+
+alias radio3="mplayer -playlist http://www.bbc.co.uk/radio/listen/live/r3_aaclca.pls"
