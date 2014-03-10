@@ -32,8 +32,8 @@ function exit_ssh_tunnel {
 
 function rdesktop_command {
     make_ssh_tunnel
-    rdesktop localhost:3388 -d DS -u eeaol -a 16 -g 1024x600 -P -x modem -z
-    exit_ssh_tunnel
+    nohup rdesktop localhost:3388 -d DS -u eeaol -a 16 -g 1300x800 -P -x broadband -z > /dev/null &
+    # exit_ssh_tunnel
     }
 
 alias piv='rdesktop_command'
