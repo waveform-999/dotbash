@@ -115,7 +115,7 @@ if [[ $TERM==screen ]]; then
     export TERM=screen-256color
 fi
 
-export EDITOR=`type -P vim`
+export EDITOR='vim'
 
 # some more ls aliases
 alias ll='ls -l'
@@ -194,7 +194,7 @@ fi
 
 # PATH
 export PATH=$HOME/.local/bin:$HOME/bin:$PATH:$HOME/.gem/ruby/1.9.1/bin
-export PYTHONPATH=$PYTHONPATH:$HOME/code:$HOME/.local/lib/python2.7/site-packages/
+# export PYTHONPATH=$PYTHONPATH:$HOME/code:$HOME/.local/lib/python2.7/site-packages/
 
 if [ $HOME = '/nfs/see-fs-02_users/eeaol' ]; then
     export PATH=$HOME/.cabal/bin:$PATH
