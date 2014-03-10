@@ -148,6 +148,10 @@ if ! shopt -oq posix; then
 fi
 
 # virtualenvwrapper
+# TODO: work on nesting these so that we can have a base environment
+# to branch off from. 
+# see http://www.gossamer-threads.com/lists/python/python/1076939
+# or possibly venv
 export WORKON_HOME=$HOME/.virtualenvs
 source $HOME/.local/bin/virtualenvwrapper.sh
 
