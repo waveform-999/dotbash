@@ -14,3 +14,4 @@ alias gco='git checkout'
 alias gb='git branch'
 # show log since last push
 alias glo='git log `git rev-parse --symbolic-full-name --abbrev-ref @{u}`..'
+alias gri='git rebase -i'

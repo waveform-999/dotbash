@@ -44,6 +44,7 @@ esac
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
 force_color_prompt=yes
+# useful aliases for bash color codes
 source ~/.bash/bash-colors.sh
 
 if [ -n "$force_color_prompt" ]; then
@@ -149,12 +150,11 @@ fi
 
 ## PATH
 export PATH=$HOME/.local/bin:$HOME/bin:$PATH:$HOME/.gem/ruby/1.9.1/bin
-# export PYTHONPATH=$PYTHONPATH:$HOME/code:$HOME/.local/lib/python2.7/site-packages/
 export PATH=$HOME/.cabal/bin:$PATH
 export PATH=$HOME/.bash/bin:$PATH  # bash scripts
 
 if [ $HOME = '/nfs/see-fs-02_users/eeaol' ]; then
-    export PATH=$HOME/make/haskell/install/ghc-7.0.3/bin:$PATH
+    export PATH=$HOME/make/haskell/install/ghc-7.6.3/bin:$PATH
 fi
 
 # virtualenvwrapper
@@ -219,3 +219,4 @@ fi
 export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig
 export LD_LIBRARY_PATH=$HOME/lib/:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=$HOME/.local/lib/:$LD_LIBRARY_PATH
+MANPATH=$MANPATH:$HOME/share/man
