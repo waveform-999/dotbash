@@ -163,6 +163,11 @@ if [ $HOME = "/home/aaron" ]; then
     alias canopy="VIRTUAL_ENV_DISABLE_PROMPT='' source /home/aaron/src/canopy/Enthought/Canopy_64bit/User/bin/activate"
 elif [ $HOME = "/nfs/see-fs-02_users/eeaol" ]; then
     alias canopy="VIRTUAL_ENV_DISABLE_PROMPT='1' source /home/eeaol/src/canopy/User/bin/activate"
+fi
+
+# can't do this inside the if above because the alias isn't available
+# until it ends
+if [ $HOME = "/nfs/see-fs-02_users/eeaol" ]; then
     canopy
 fi
 
