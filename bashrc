@@ -147,6 +147,16 @@ if ! shopt -oq posix; then
   fi
 fi
 
+## PATH
+export PATH=$HOME/.local/bin:$HOME/bin:$PATH:$HOME/.gem/ruby/1.9.1/bin
+# export PYTHONPATH=$PYTHONPATH:$HOME/code:$HOME/.local/lib/python2.7/site-packages/
+export PATH=$HOME/.cabal/bin:$PATH
+export PATH=$HOME/.bash/bin:$PATH  # bash scripts
+
+if [ $HOME = '/nfs/see-fs-02_users/eeaol' ]; then
+    export PATH=$HOME/make/haskell/install/ghc-7.0.3/bin:$PATH
+fi
+
 # virtualenvwrapper
 # TODO: work on nesting these so that we can have a base environment
 # to branch off from. 
@@ -154,6 +164,12 @@ fi
 # or possibly venv
 export WORKON_HOME=$HOME/.virtualenvs
 source $HOME/.local/bin/virtualenvwrapper.sh
+
+# virtualenv_selector is a script in .bash/bin
+# it lets us do virtualenvs based off of canopy
+# I've done it like this because virtualenv_wrapper
+# searches for the function using which
+export VIRTUALENVWRAPPER_VIRTUALENV="virtualenv_selector"
 
 # Added by Canopy installer on 2013-07-02
 # VIRTUAL_ENV_DISABLE_PROMPT can be set to '' to make bashprompt show that Canopy is active, otherwise 1
@@ -194,15 +210,6 @@ if [ $HOME = '/nfs/see-fs-02_users/eeaol' ]; then
     fi
     # set up these apps and don't tell me about it
     app setup ImageMagick gimp mendeley libreoffice > /dev/null
-fi
-
-# PATH
-export PATH=$HOME/.local/bin:$HOME/bin:$PATH:$HOME/.gem/ruby/1.9.1/bin
-# export PYTHONPATH=$PYTHONPATH:$HOME/code:$HOME/.local/lib/python2.7/site-packages/
-
-if [ $HOME = '/nfs/see-fs-02_users/eeaol' ]; then
-    export PATH=$HOME/.cabal/bin:$PATH
-    export PATH=$HOME/make/haskell/install/ghc-7.0.3/bin:$PATH
 fi
 
 # use self compiled libraries

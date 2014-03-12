@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Selector for the virtualenv function.  Defined here and not
+# as a script function because virtualenvwrapper tests for the
+# existence of the virtualenv command using which.
+
+function virtualenv_selector {
+    if [[ -z "$VIRTUAL_ENV" ]]; then
+        # can't use command for some reason - complains about
+        # not finding virtualenv
+        # command "virtualenv $@"
+        virtualenv $@
+    elif [ $VIRTUAL_ENV = "$HOME/src/canopy/Enthought/Canopy_64bit/User" ]; then
+        canopy_cli venv $@
+    else
+        virtualenv $@
+    fi
+}
+
+virtualenv_selector $@
