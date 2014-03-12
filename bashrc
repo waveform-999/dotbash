@@ -183,8 +183,10 @@ fi
 function canopy_wrapper {
     if [[ -z "$VIRTUAL_ENV" ]]; then
         command "$@"
-    elif [ $VIRTUAL_ENV = "/home/aaron/src/canopy/Enthought/Canopy_64bit/User" ]; then
-        APPDATA=/home/aaron/src/canopy/appdata/canopy-1.0.3.1262.rh5-x86_64
+    elif [ $VIRTUAL_ENV = "$HOME/src/canopy/Enthought/Canopy_64bit/User" ]; then
+        APPDATA_ROOT="$HOME/src/canopy/appdata/"
+        # find the most recent canopy install
+        APPDATA=$(ls -dt1 ${APPDATA_ROOT}canopy-1* | head -n1)
         LD_LIBRARY_PATH="$APPDATA/lib${LD_LIBRARY_PATH}" command "$@"
     elif [ $VIRTUAL_ENV = "/apps/canopy-1.0.3/Enthought/Canopy_64bit/User" ]; then
         APPDATA=/apps/canopy/appdata/canopy-1.0.3.1262.rh5-x86_64
