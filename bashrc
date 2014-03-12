@@ -157,12 +157,15 @@ if [ $HOME = '/nfs/see-fs-02_users/eeaol' ]; then
     export PATH=$HOME/make/haskell/install/ghc-7.6.3/bin:$PATH
 fi
 
+laptop_canopy="/home/aaron/src/canopy/Enthought/Canopy_64bit/User"
+work_canopy="/nfs/see-fs-02_users/eeaol/src/canopy/User"
+
 # Added by Canopy installer on 2013-07-02
 # VIRTUAL_ENV_DISABLE_PROMPT can be set to '' to make bashprompt show that Canopy is active, otherwise 1
 if [ $HOME = "/home/aaron" ]; then
-    alias canopy="VIRTUAL_ENV_DISABLE_PROMPT='' source /home/aaron/src/canopy/Enthought/Canopy_64bit/User/bin/activate"
+    alias canopy="VIRTUAL_ENV_DISABLE_PROMPT='' source $laptop_canopy/bin/activate"
 elif [ $HOME = "/nfs/see-fs-02_users/eeaol" ]; then
-    alias canopy="VIRTUAL_ENV_DISABLE_PROMPT='1' source /home/eeaol/src/canopy/User/bin/activate"
+    alias canopy="VIRTUAL_ENV_DISABLE_PROMPT='1' source $work_canopy/bin/activate"
 fi
 
 # can't do this inside the if above because the alias isn't available
@@ -176,14 +179,24 @@ fi
 function canopy_wrapper {
     if [[ -z "$VIRTUAL_ENV" ]]; then
         command "$@"
-    elif [ $VIRTUAL_ENV = "$HOME/src/canopy/Enthought/Canopy_64bit/User" ]; then
+
+    elif [ $VIRTUAL_ENV = $laptop_canopy ]; then
         APPDATA_ROOT="$HOME/src/canopy/appdata/"
         # find the most recent canopy install
         APPDATA=$(ls -dt1 ${APPDATA_ROOT}canopy-1* | head -n1)
-        LD_LIBRARY_PATH="$APPDATA/lib${LD_LIBRARY_PATH}" command "$@"
+        LD_LIBRARY_PATH="$APPDATA/lib:${LD_LIBRARY_PATH}" command "$@"
+
+    elif [ $VIRTUAL_ENV = $work_canopy ]; then
+        APPDATA_ROOT="$HOME/src/canopy/appdata/"
+        # find the most recent canopy install
+        APPDATA=$(ls -dt1 ${APPDATA_ROOT}canopy-1* | head -n1)
+        LD_LIBRARY_PATH="$APPDATA/lib:${LD_LIBRARY_PATH}" command "$@"
+
     elif [ $VIRTUAL_ENV = "/apps/canopy-1.0.3/Enthought/Canopy_64bit/User" ]; then
+        # other work canopy
         APPDATA=/apps/canopy/appdata/canopy-1.0.3.1262.rh5-x86_64
-        LD_LIBRARY_PATH="$APPDATA/lib:${APPDATA}/lib/python2.7/site-packages/zmq${LD_LIBRARY_PATH}" command "$@"
+        LD_LIBRARY_PATH="$APPDATA/lib:${APPDATA}/lib/python2.7/site-packages/zmq:${LD_LIBRARY_PATH}" command "$@"
+
     else
         command "$@"
     fi
