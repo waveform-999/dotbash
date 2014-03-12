@@ -174,10 +174,16 @@ export VIRTUALENVWRAPPER_VIRTUALENV="virtualenv_selector"
 # Added by Canopy installer on 2013-07-02
 # VIRTUAL_ENV_DISABLE_PROMPT can be set to '' to make bashprompt show that Canopy is active, otherwise 1
 if [ $HOME = "/home/aaron" ]; then
-    alias canopy="VIRTUAL_ENV_DISABLE_PROMPT='' source /home/aaron/src/canopy/Enthought/Canopy_64bit/User/bin/activate"
+    alias canopy="VIRTUAL_ENV_DISABLE_PROMPT='1' source /home/aaron/src/canopy/Enthought/Canopy_64bit/User/bin/activate"
 elif [ $HOME = "/nfs/see-fs-02_users/eeaol" ]; then
-    alias canopy="VIRTUAL_ENV_DISABLE_PROMPT='' source /apps/canopy/Enthought/Canopy_64bit/User/bin/activate"
+    alias canopy="VIRTUAL_ENV_DISABLE_PROMPT='1' source /home/eeaol/src/canopy/User/bin/activate"
 fi
+canopy
+
+# virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+source $(which virtualenvwrapper.sh) 
+
 
 # make aliases conditional on whether canopy is on or not
 function canopy_wrapper {
