@@ -12,6 +12,8 @@ function virtualenv_selector {
         virtualenv $@
     elif [ $VIRTUAL_ENV = "$HOME/src/canopy/Enthought/Canopy_64bit/User" ]; then
         canopy_cli venv $@
+    elif [ $VIRTUAL_ENV = "$HOME/src/canopy/User" ]; then
+        canopy_cli venv $@
     else
         virtualenv $@
     fi
