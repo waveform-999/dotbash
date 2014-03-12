@@ -180,10 +180,6 @@ elif [ $HOME = "/nfs/see-fs-02_users/eeaol" ]; then
 fi
 canopy
 
-# virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-source $(which virtualenvwrapper.sh) 
-
 
 # make aliases conditional on whether canopy is on or not
 function canopy_wrapper {
