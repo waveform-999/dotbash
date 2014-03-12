@@ -160,11 +160,11 @@ fi
 # Added by Canopy installer on 2013-07-02
 # VIRTUAL_ENV_DISABLE_PROMPT can be set to '' to make bashprompt show that Canopy is active, otherwise 1
 if [ $HOME = "/home/aaron" ]; then
-    alias canopy="VIRTUAL_ENV_DISABLE_PROMPT='1' source /home/aaron/src/canopy/Enthought/Canopy_64bit/User/bin/activate"
+    alias canopy="VIRTUAL_ENV_DISABLE_PROMPT='' source /home/aaron/src/canopy/Enthought/Canopy_64bit/User/bin/activate"
 elif [ $HOME = "/nfs/see-fs-02_users/eeaol" ]; then
     alias canopy="VIRTUAL_ENV_DISABLE_PROMPT='1' source /home/eeaol/src/canopy/User/bin/activate"
+    canopy
 fi
-canopy
 
 
 # make aliases conditional on whether canopy is on or not
