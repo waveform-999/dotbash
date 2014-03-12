@@ -157,20 +157,6 @@ if [ $HOME = '/nfs/see-fs-02_users/eeaol' ]; then
     export PATH=$HOME/make/haskell/install/ghc-7.6.3/bin:$PATH
 fi
 
-# virtualenvwrapper
-# TODO: work on nesting these so that we can have a base environment
-# to branch off from. 
-# see http://www.gossamer-threads.com/lists/python/python/1076939
-# or possibly venv
-export WORKON_HOME=$HOME/.virtualenvs
-source $HOME/.local/bin/virtualenvwrapper.sh
-
-# virtualenv_selector is a script in .bash/bin
-# it lets us do virtualenvs based off of canopy
-# I've done it like this because virtualenv_wrapper
-# searches for the function using which
-export VIRTUALENVWRAPPER_VIRTUALENV="virtualenv_selector"
-
 # Added by Canopy installer on 2013-07-02
 # VIRTUAL_ENV_DISABLE_PROMPT can be set to '' to make bashprompt show that Canopy is active, otherwise 1
 if [ $HOME = "/home/aaron" ]; then
@@ -203,6 +189,23 @@ alias vi='vim'
 alias vim="canopy_wrapper vim"
 alias gvim="canopy_wrapper gvim"
 alias vimdiff="canopy_wrapper vimdiff"
+
+# virtualenvwrapper
+# TODO: work on nesting these so that we can have a base environment
+# to branch off from.
+# see http://www.gossamer-threads.com/lists/python/python/1076939
+# or possibly venv
+virtualenvwrapper=$HOME/.local/bin/virtualenvwrapper.sh
+if [ -f $virtualenvwrapper ]; then
+    source $virtualenvwrapper
+    export WORKON_HOME=$HOME/.virtualenvs
+fi
+
+# virtualenv_selector is a script in .bash/bin
+# it lets us do virtualenvs based off of canopy
+# I've done it like this because virtualenv_wrapper
+# searches for the function using which
+export VIRTUALENVWRAPPER_VIRTUALENV="virtualenv_selector"
 
 stty stop undef # unmap ctrl-S (for vim-ipython)
 
