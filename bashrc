@@ -183,13 +183,13 @@ function canopy_wrapper {
     elif [ $VIRTUAL_ENV = $laptop_canopy ]; then
         APPDATA_ROOT="$HOME/src/canopy/appdata/"
         # find the most recent canopy install
-        APPDATA=$(ls -dt1 ${APPDATA_ROOT}canopy-1* | head -n1)
+        APPDATA=$(ls -d ${APPDATA_ROOT}canopy-1* | tail -n1)
         LD_LIBRARY_PATH="$APPDATA/lib:${LD_LIBRARY_PATH}" command "$@"
 
     elif [ $VIRTUAL_ENV = $work_canopy ]; then
         APPDATA_ROOT="$HOME/src/canopy/appdata/"
         # find the most recent canopy install
-        APPDATA=$(ls -dt1 ${APPDATA_ROOT}canopy-1* | head -n1)
+        APPDATA=$(ls -d ${APPDATA_ROOT}canopy-1* | tail -n1)
         LD_LIBRARY_PATH="$APPDATA/lib:${LD_LIBRARY_PATH}" command "$@"
 
     elif [ $VIRTUAL_ENV = "/apps/canopy-1.0.3/Enthought/Canopy_64bit/User" ]; then
