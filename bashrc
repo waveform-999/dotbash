@@ -66,7 +66,7 @@ GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUPSTREAM="auto"
 
 if [ "$color_prompt" = yes ]; then
-    PS1="\[$Blue\]\u@\h\[$Color_Off\]:\[$BBlue\]\w\[$Yellow\]\$(__git_ps1)\[$Color_Off\]\$ "
+    PS1="\[$Blue\]\h\[$Color_Off\]:\[$BBlue\]\w\[$Yellow\]\$(__git_ps1)\[$Color_Off\]\$ "
 else
     PS1='\u@\h:\w\$ '
 fi
