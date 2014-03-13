@@ -51,7 +51,7 @@ function start_ipython_tunnel {
     # start the notebook on doug-and-duck
     ## command to setup canopy
     canopy_up='source /home/eeaol/src/canopy/User/bin/activate'
-    notebook_up='PYTHONPATH=/home/eeaol/code/ ipython notebook --no-browser --port=8898 --pylab=inline --notebook-dir=/home/eeaol/code/notebooks &'
+    notebook_up='PYTHONPATH=/home/eeaol/code/ ipython notebook --no-browser --port=8898 --notebook-dir=/home/eeaol/code/notebooks &'
     ssh -f doug-and-duck "${canopy_up}; ${notebook_up}"
 
     # wait for notebook to get started
