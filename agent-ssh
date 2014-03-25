@@ -33,7 +33,7 @@ ASK4PASS=yes
 #           10m     10 minutes
 #           1h30m   1 hour 30 minutes (90 minutes)
 
-SSH_AGENT_LIFE="-t 2h"
+SSH_AGENT_LIFE="-t 6h"
 
 SSH_VARS=$HOME/.ssh/vars.sh
 SSH_VARS=$HOME/.ssh/agent-$HOSTNAME
