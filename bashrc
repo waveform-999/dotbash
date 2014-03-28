@@ -204,8 +204,8 @@ function canopy_wrapper {
     fi
 }
 
-alias v='vim'
-alias vi='vim'
+alias v="canopy_wrapper vim"
+alias vi="canopy_wrapper vim"
 alias vim="canopy_wrapper vim"
 alias gvim="canopy_wrapper gvim"
 alias vimdiff="canopy_wrapper vimdiff"
