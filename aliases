@@ -37,7 +37,7 @@ function exit_ssh_tunnel {
 
 function rdesktop_command {
     make_ssh_tunnel
-    nohup rdesktop localhost:3388 -d DS -u eeaol -a 16 -g 1300x800 -P -x broadband -z > /dev/null &
+    nohup rdesktop localhost:3388 -d DS -u eeaol -a 16 -f -P -x broadband -z > /dev/null &
     # exit_ssh_tunnel
     }
 
