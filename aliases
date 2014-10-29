@@ -14,6 +14,7 @@ alias rm='rm -i'
 alias vi='vim'
 
 alias iv='viewnior'
+alias view='viewnior'
 
 alias u="amixer set Master 5%+ | grep -o '\[.*%\]'"
 alias d="amixer set Master 5%- | grep -o '\[.*%\]'"
