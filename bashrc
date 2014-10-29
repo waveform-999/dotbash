@@ -154,6 +154,7 @@ fi
 export PATH=$HOME/.local/bin:$HOME/bin:$PATH:$HOME/.gem/ruby/1.9.1/bin
 export PATH=$HOME/.cabal/bin:$PATH
 export PATH=$HOME/.bash/bin:$PATH  # bash scripts
+export PATH=$HOME/src/nvim/bin:$PATH   # neovim
 
 if [ $HOME = '/nfs/see-fs-02_users/eeaol' ]; then
     export PATH=$HOME/make/haskell/install/ghc-7.6.3/bin:$PATH
