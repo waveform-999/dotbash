@@ -163,6 +163,10 @@ fi
 laptop_canopy="/home/aaron/src/canopy/Enthought/Canopy_64bit/User"
 work_canopy="/nfs/see-fs-02_users/eeaol/src/canopy/User"
 
+laptop_anaconda="/home/aaron/src/anaconda"
+alias anaconda="export PATH=$laptop_anaconda/bin:$PATH"
+alias thesis="cd ~/thesis; source $laptop_anaconda/bin/activate thesis"
+
 # Added by Canopy installer on 2013-07-02
 # VIRTUAL_ENV_DISABLE_PROMPT can be set to '' to make bashprompt show that Canopy is active, otherwise 1
 if [ $HOME = "/home/aaron" ]; then
