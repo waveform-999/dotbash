@@ -250,3 +250,11 @@ export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig
 export LD_LIBRARY_PATH=$HOME/lib/:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=$HOME/.local/lib/:$LD_LIBRARY_PATH
 MANPATH=$MANPATH:$HOME/share/man
+
+# go stuff
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/.local/go
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+
+# added by travis gem
+[ -f /home/aaron/.travis/travis.sh ] && source /home/aaron/.travis/travis.sh
