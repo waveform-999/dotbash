@@ -226,6 +226,9 @@ alias vim="canopy_wrapper vim"
 alias gvim="canopy_wrapper gvim"
 alias vimdiff="canopy_wrapper vimdiff"
 
+# testing!!!
+alias vim='nvim'
+
 # virtualenvwrapper
 # TODO: work on nesting these so that we can have a base environment
 # to branch off from.
