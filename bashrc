@@ -272,3 +272,5 @@ export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 
 # added by travis gem
 [ -f /home/aaron/.travis/travis.sh ] && source /home/aaron/.travis/travis.sh
+# fzf: https://github.com/junegunn/fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
