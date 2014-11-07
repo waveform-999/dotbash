@@ -274,3 +274,8 @@ export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 [ -f /home/aaron/.travis/travis.sh ] && source /home/aaron/.travis/travis.sh
 # fzf: https://github.com/junegunn/fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+
+# find file and open with vim
+# bind '"\C-v": "vim $(__fsel)\r"'
+bind '"\C-v": "vim $(fzf)\r"'
