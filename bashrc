@@ -87,6 +87,9 @@ fi
 # PROMPT_COMMAND='__git_ps1 ""${PS1}""'
 unset color_prompt force_color_prompt
 
+# trim prompt to only show last 3 directories
+PROMPT_DIRTRIM=3
+
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
