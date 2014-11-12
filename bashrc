@@ -174,61 +174,19 @@ if [ $HOME = '/nfs/see-fs-02_users/eeaol' ]; then
     export PATH=$HOME/make/haskell/install/ghc-7.6.3/bin:$PATH
 fi
 
-laptop_canopy="/home/aaron/src/canopy/Enthought/Canopy_64bit/User"
-work_canopy="/nfs/see-fs-02_users/eeaol/src/canopy/User"
-
-laptop_anaconda="/home/aaron/src/anaconda"
-alias anaconda="export PATH=$laptop_anaconda/bin:$PATH"
-alias thesis="cd ~/thesis; source $laptop_anaconda/bin/activate thesis"
-
-# Added by Canopy installer on 2013-07-02
-# VIRTUAL_ENV_DISABLE_PROMPT can be set to '' to make bashprompt show that Canopy is active, otherwise 1
-if [ $HOME = "/home/aaron" ]; then
-    alias canopy="VIRTUAL_ENV_DISABLE_PROMPT='' source $laptop_canopy/bin/activate"
-elif [ $HOME = "/nfs/see-fs-02_users/eeaol" ]; then
-    alias canopy="VIRTUAL_ENV_DISABLE_PROMPT='1' source $work_canopy/bin/activate"
-fi
+anaconda="$HOME/src/anaconda"
+alias anaconda="export PATH=$anaconda/bin:$PATH"
+alias thesis="cd ~/thesis; source $anaconda/bin/activate thesis"
 
 # can't do this inside the if above because the alias isn't available
 # until it ends
 if [ $HOME = "/nfs/see-fs-02_users/eeaol" ]; then
-    canopy
+    anaconda
 fi
 
 
-# make aliases conditional on whether canopy is on or not
-function canopy_wrapper {
-    if [[ -z "$VIRTUAL_ENV" ]]; then
-        command "$@"
-
-    elif [ $VIRTUAL_ENV = $laptop_canopy ]; then
-        APPDATA_ROOT="$HOME/src/canopy/appdata/"
-        # find the most recent canopy install
-        APPDATA=$(ls -d ${APPDATA_ROOT}canopy-1* | tail -n1)
-        LD_LIBRARY_PATH="$APPDATA/lib:${LD_LIBRARY_PATH}" command "$@"
-
-    elif [ $VIRTUAL_ENV = $work_canopy ]; then
-        APPDATA_ROOT="$HOME/src/canopy/appdata/"
-        # find the most recent canopy install
-        APPDATA=$(ls -d ${APPDATA_ROOT}canopy-1* | tail -n1)
-        LD_LIBRARY_PATH="$APPDATA/lib:${LD_LIBRARY_PATH}" command "$@"
-
-    elif [ $VIRTUAL_ENV = "/apps/canopy-1.0.3/Enthought/Canopy_64bit/User" ]; then
-        # other work canopy
-        APPDATA=/apps/canopy/appdata/canopy-1.0.3.1262.rh5-x86_64
-        LD_LIBRARY_PATH="$APPDATA/lib:${APPDATA}/lib/python2.7/site-packages/zmq:${LD_LIBRARY_PATH}" command "$@"
-
-    else
-        command "$@"
-    fi
-}
-
-alias v="canopy_wrapper vim"
-alias vi="canopy_wrapper vim"
-alias vim="canopy_wrapper vim"
-alias gvim="canopy_wrapper gvim"
-alias vimdiff="canopy_wrapper vimdiff"
-
+alias v="vim"
+alias vi="vim"
 # testing!!!
 alias vim='nvim'
 
