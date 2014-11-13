@@ -169,7 +169,7 @@ if [ $HOME = '/nfs/see-fs-02_users/eeaol' ]; then
     export PATH=$HOME/make/haskell/install/ghc-7.6.3/bin:$PATH
 fi
 
-anaconda="$HOME/src/anaconda"
+export anaconda="$HOME/src/anaconda"
 alias anaconda="export PATH=$anaconda/bin:$PATH"
 alias thesis="cd ~/thesis; source $anaconda/bin/activate thesis"
 
