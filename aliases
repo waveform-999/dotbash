@@ -1,3 +1,5 @@
+#!/bin/bash
+
 alias ca='vi ~/.bash/aliases'
 alias src='source ~/.bashrc'
 
