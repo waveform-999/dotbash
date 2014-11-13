@@ -3,6 +3,8 @@ source ~/.bash/aliases
 
 # git bash completion
 source ~/.bash/git-completion.sh
+# hub bash completion (extends git completion)
+source ~/.bash/hub.bash_completion.sh
 
 # alias completion
 # wrap_alias takes three arguments:
