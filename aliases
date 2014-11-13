@@ -1,9 +1,9 @@
 alias ca='vi ~/.bash/aliases'
 alias src='source ~/.bashrc'
 
-alias l="ls -B --ignore='*.pyc'"
-alias ll='ls -l -B'
-alias la='ls -a'
+alias l="ls -BF --ignore='*.pyc'"
+alias ll='ls -l -BF'
+alias la='ls -AF'
 
 # .. goes up a directory
 alias ..='cd ..'
@@ -11,7 +11,14 @@ alias ..='cd ..'
 alias -- -='cd -'
 
 alias rm='rm -i'
-alias vi='vim'
+
+alias v="vim"
+alias vi="vim"
+# testing!!!
+alias vim='nvim'
+
+# use hub (see ~/src/hub)
+alias git=hub
 
 alias iv='viewnior'
 alias view='viewnior'

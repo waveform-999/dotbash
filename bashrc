@@ -134,11 +134,6 @@ fi
 
 export EDITOR='vim'
 
-# some more ls aliases
-alias ll='ls -l'
-alias la='ls -A'
-alias l='ls -CF'
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -167,7 +162,7 @@ fi
 ## PATH
 export PATH=$HOME/.local/bin:$HOME/bin:$PATH:$HOME/.gem/ruby/1.9.1/bin
 export PATH=$HOME/.cabal/bin:$PATH
-export PATH=$HOME/.bash/bin:$PATH  # bash scripts
+export PATH=$HOME/.bash/bin:$PATH      # bash scripts
 export PATH=$HOME/src/nvim/bin:$PATH   # neovim
 
 if [ $HOME = '/nfs/see-fs-02_users/eeaol' ]; then
@@ -183,12 +178,6 @@ alias thesis="cd ~/thesis; source $anaconda/bin/activate thesis"
 if [ $HOME = "/nfs/see-fs-02_users/eeaol" ]; then
     anaconda
 fi
-
-
-alias v="vim"
-alias vi="vim"
-# testing!!!
-alias vim='nvim'
 
 # virtualenvwrapper
 # TODO: work on nesting these so that we can have a base environment
@@ -236,8 +225,6 @@ export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 # fzf: https://github.com/junegunn/fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# use hub (see ~/src/hub)
-alias git=hub
 
 # find file and open with vim
 # bind '"\C-v": "vim $(__fsel)\r"'
