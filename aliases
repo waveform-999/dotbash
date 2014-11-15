@@ -14,8 +14,8 @@ alias -- -='cd -'
 
 alias rm='rm -i'
 
-alias v="vim"
-alias vi="vim"
+alias v="$(which vim)"
+alias vi="$(which vim)"
 # testing!!!
 alias vim='nvim'
 

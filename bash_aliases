@@ -70,6 +70,6 @@ function ${wrapper_name}() {
 
 # For each defined alias, extract the necessary elements and use them
 # to call wrap_alias.
-eval "$(alias -p | sed -e 's/alias \([^=][^=]*\)='\''\([^ ][^ ]*\) *\(.*\)'\''/wrap_alias \1 \2 '\''\3'\'' /')"
+eval "$(alias -p | grep -v '[\";|&]' |sed -e 's/alias \([^=][^=]*\)='\''\([^ ][^ ]*\) *\(.*\)'\''/wrap_alias \1 \2 '\''\3'\'' /')"
 
 unset wrap_alias
