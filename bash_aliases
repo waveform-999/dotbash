@@ -15,6 +15,8 @@ source ~/.bash/hub.bash_completion.sh
 # based on the command and the given arguments, if there is a
 # completer for the command, and set the wrapper as the completer for
 # the alias.
+# taken from https://stackoverflow.com/a/1793178/1157089
+# TODO: replace with this? https://superuser.com/a/437508/173652
 function wrap_alias() {
   [[ "$#" == 3 ]] || return 1
 
