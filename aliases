@@ -105,3 +105,9 @@ function substitute {
 function ytplay {
     youtube-dl "$1" -o - | vlc -
 }
+
+# get audio from youtube video
+# see also youtube-dl -F and -f 141
+function ytaudio {
+    youtube-dl -f bestaudio "$1"
+}
