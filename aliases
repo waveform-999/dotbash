@@ -100,3 +100,8 @@ function substitute {
     shift 2
     ack -l --print0 "$@" "$FROM_STRING" | xargs -0 -n 1 sed -i -e "s/$FROM_STRING/$TO_STRING/g"
 }
+
+# play youtube videos with youtube-dl
+function ytplay {
+    youtube-dl "$1" -o - | vlc -
+}
