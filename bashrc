@@ -200,11 +200,6 @@ export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 # fzf: https://github.com/junegunn/fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-
-# find file and open with vim
-# bind '"\C-v": "vim $(__fsel)\r"'
-bind '"\C-v": "vim $(fzf)\r"'
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
