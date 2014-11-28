@@ -122,9 +122,6 @@ fe() {
   [ -n "$file" ] && ${EDITOR:-vim} "$file"
 }
 
-# find file and open with $EDITOR
-bind '"\C-v": "fe\r"'
-
 # fd - cd to selected directory
 fd() {
   local dir
@@ -137,3 +134,14 @@ fd() {
 fkill() {
   ps -ef | sed 1d | fzf -m | awk '{print $2}' | xargs kill -${1:-9}
 }
+
+
+# READLINE options
+bind '"\C-h": backward-char'
+bind '"\C-l": forward-char'
+bind '"\C-b": backward-word'
+
+bind '"\C-k": previous-history'
+bind '"\C-j": next-history'
+# find file and open with $EDITOR
+bind '"\C-p": "fe\r"'
