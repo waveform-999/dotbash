@@ -79,9 +79,15 @@ GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUPSTREAM="auto"
 
 if [ "$color_prompt" = yes ]; then
-    PS1="\[$Blue\]\h\[$Color_Off\]:\[$BBlue\]\w\[$Yellow\]\$(__git_ps1)\[$Color_Off\]$ "
+    # I started from http://stackoverflow.com/a/14429219 and
+    # worked towards what I wanted. No idea how it works. I
+    # previously used the colour definitions in bash-colors.sh
+    # but these led to me having the cursor in the middle of the
+    # prompt when in a git repo (when logged in by ssh).
+    PS1='\[\e[0;34m\]\h\[\e[0;39m\]:\[\e[1;34m\]\w\[\e[0;39m\]\[\e[0;33m\]$(__git_ps1 " (%s)")\[\e[0;39m\]\$ '
 else
     PS1='\u@\h:\w\$ '
+
 fi
 # http://stackoverflow.com/questions/3058325/what-is-the-difference-between-ps1-and-prompt-command
 # PROMPT_COMMAND='__git_ps1 ""${PS1}""'
@@ -216,7 +222,7 @@ fi
 
 # convert the csh aliases into bash syntax
 # if [ -f ~/.csh_aliases ]; then
-    # sed -e "s/alias \([a-z0-9_]*\) /alias \1=/" -e "s/\.csh/\.bash/" ~/.csh_aliases > ~/.bash_aliases 
+    # sed -e "s/alias \([a-z0-9_]*\) /alias \1=/" -e "s/\.csh/\.bash/" ~/.csh_aliases > ~/.bash_aliases
 # fi
 
 # enable programmable completion features (you don't need to enable
