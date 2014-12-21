@@ -165,6 +165,8 @@ alias thesis="cd ~/thesis; source $anaconda/bin/activate thesis"
 # until it ends
 if [ $HOME = "/nfs/see-fs-02_users/eeaol" ]; then
     anaconda
+elif [ $HOME = "/home/aaron" ]; then
+    anaconda
 fi
 
 # virtualenvwrapper
