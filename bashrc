@@ -158,7 +158,7 @@ fi
 
 export anaconda="$HOME/src/anaconda"
 alias anaconda="export PATH=$anaconda/bin:$PATH; alias workon='source activate'; alias deactivate='source deactivate'"
-alias nanaconda="export PATH=$(echo $PATH | sed -E 's,'$anaconda'(/\w+)*/bin:,,')"
+alias nanaconda="export PATH=$(echo $PATH | sed -E 's,'$anaconda'(/\w+)*/bin:,,'); unalias workon; unalias deactivate"
 alias thesis="cd ~/thesis; source $anaconda/bin/activate thesis"
 
 # can't do this inside the if above because the alias isn't available
