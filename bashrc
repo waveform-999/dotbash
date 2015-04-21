@@ -36,11 +36,15 @@ shopt -s histappend
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# cd with just the name of a directory
-shopt -s autocd
 # autocorrect mistakes in directory names on cd and tab complete
 shopt -s cdspell
-shopt -s dirspell
+
+# old bash at work...
+if [ $HOME = "/home/aaron" ]; then
+    # cd with just the name of a directory
+    shopt -s autocd
+    shopt -s dirspell
+fi
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
