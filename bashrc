@@ -156,19 +156,6 @@ if [ $HOME = '/nfs/see-fs-02_users/eeaol' ]; then
     export PATH=$HOME/make/haskell/install/ghc-7.6.3/bin:$PATH
 fi
 
-export anaconda="$HOME/src/anaconda"
-alias anaconda="export PATH=$anaconda/bin:$PATH; alias workon='source activate'; alias deactivate='source deactivate'"
-alias nanaconda="export PATH=$(echo $PATH | sed -E 's,'$anaconda'(/\w+)*/bin:,,'); unalias workon; unalias deactivate"
-alias thesis="cd ~/thesis; source $anaconda/bin/activate thesis"
-
-# can't do this inside the if above because the alias isn't available
-# until it ends
-if [ $HOME = "/nfs/see-fs-02_users/eeaol" ]; then
-    anaconda
-elif [ $HOME = "/home/aaron" ]; then
-    anaconda
-fi
-
 # virtualenvwrapper
 # TODO: work on nesting these so that we can have a base environment
 # to branch off from.
@@ -185,6 +172,19 @@ fi
 # I've done it like this because virtualenv_wrapper
 # searches for the function using which
 export VIRTUALENVWRAPPER_VIRTUALENV="virtualenv_selector"
+
+export anaconda="$HOME/src/anaconda"
+alias anaconda="export PATH=$anaconda/bin:$PATH; alias workon='source activate'; alias deactivate='source deactivate'"
+alias nanaconda="export PATH=$(echo $PATH | sed -E 's,'$anaconda'(/\w+)*/bin:,,'); unalias workon; unalias deactivate; source $virtualenvwrapper"
+alias thesis="cd ~/thesis; source $anaconda/bin/activate thesis"
+
+# can't do this inside the if above because the alias isn't available
+# until it ends
+if [ $HOME = "/nfs/see-fs-02_users/eeaol" ]; then
+    anaconda
+elif [ $HOME = "/home/aaron" ]; then
+    anaconda
+fi
 
 stty stop undef # unmap ctrl-S (for vim-ipython)
 
