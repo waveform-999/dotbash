@@ -6,6 +6,7 @@ alias src='source ~/.bashrc'
 alias l="ls -BF --ignore='*.pyc'"
 alias ll='ls -l -BF'
 alias la='ls -AF'
+alias lh='ls -dF .*'
 
 # .. goes up a directory
 alias ..='cd ..'
