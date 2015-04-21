@@ -115,18 +115,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.bash/dircolors && eval "$(dircolors -b ~/.bash/dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
 # marks (quicker cd)
 source ~/.bash/marks
 
@@ -160,16 +148,18 @@ if [ $HOME = '/nfs/see-fs-02_users/eeaol' ]; then
     export PATH=$HOME/make/haskell/install/ghc-7.6.3/bin:$PATH
 fi
 
-# virtualenvwrapper
-# TODO: work on nesting these so that we can have a base environment
-# to branch off from.
-# see http://www.gossamer-threads.com/lists/python/python/1076939
-# or possibly venv
-virtualenvwrapper=$HOME/.local/bin/virtualenvwrapper.sh
-if [ -f $virtualenvwrapper ]; then
-    source $virtualenvwrapper
-    export WORKON_HOME=$HOME/.virtualenvs
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.bash/dircolors && eval "$(dircolors -b ~/.bash/dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
 fi
+
 
 # virtualenv_selector is a script in .bash/bin
 # it lets us do virtualenvs based off of canopy
@@ -188,6 +178,17 @@ if [ $HOME = "/nfs/see-fs-02_users/eeaol" ]; then
     anaconda
 elif [ $HOME = "/home/aaron" ]; then
     anaconda
+fi
+
+# virtualenvwrapper
+# TODO: work on nesting these so that we can have a base environment
+# to branch off from.
+# see http://www.gossamer-threads.com/lists/python/python/1076939
+# or possibly venv
+virtualenvwrapper=$HOME/.local/bin/virtualenvwrapper.sh
+if [ -f $virtualenvwrapper ]; then
+    source $virtualenvwrapper
+    export WORKON_HOME=$HOME/.virtualenvs
 fi
 
 stty stop undef # unmap ctrl-S (for vim-ipython)
