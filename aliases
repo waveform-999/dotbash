@@ -55,6 +55,8 @@ function rdesktop_command {
 alias piv='rdesktop_command'
 alias dad='ssh -tX doug-and-duck "cd $PWD; bash -l"'
 
+alias ipe='ipython console --existing'
+
 function start_ipython_tunnel {
     # make a tunnel from this machine to doug-and-duck
     # so that we can run an ipython notebook on doug-and-duck
