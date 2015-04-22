@@ -63,13 +63,12 @@ function start_ipython_tunnel {
     # and interact with it on this machine (localhost)
 
     # create the tunnel in the background
-    ssh -X -N -f -L localhost:8898:localhost:8898 doug-and-duck
+    ssh -X -N -f -L localhost:8898:localhost:8898 doug-and-duck &&
 
     # start the notebook on doug-and-duck
-    ## command to setup canopy
-    canopy_up='source $HOME/src/canopy/User/bin/activate'
-    notebook_up='PYTHONPATH=$HOME/code/ ipython notebook --no-browser --port=8898 --notebook-dir=$HOME/code/notebooks &'
-    ssh -f doug-and-duck "${canopy_up}; ${notebook_up}"
+    anaconda_up="source $HOME/src/anaconda/bin/activate thesis"
+    notebook_up='ipython notebook --no-browser --port=8898 --notebook-dir=$HOME/thesis'
+    ssh -f doug-and-duck "${anaconda_up} && ${notebook_up}" &&
 
     # wait for notebook to get started
     echo "spinning up notebook on doug-and-duck..."
