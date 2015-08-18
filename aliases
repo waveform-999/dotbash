@@ -69,9 +69,9 @@ function start_ipython_tunnel {
     ssh -X -N -f -L localhost:8898:localhost:8898 doug-and-duck &&
 
     # start the notebook on doug-and-duck
-    anaconda_up="source $HOME/src/anaconda/bin/activate thesis"
-    notebook_up='ipython notebook --no-browser --port=8898 --notebook-dir=$HOME/thesis'
-    ssh -f doug-and-duck "${anaconda_up} && ${notebook_up}" &&
+    ipython=src/anaconda/envs/thesis/bin/ipython
+    notebook_up="$ipython notebook --no-browser --port=8898 --notebook-dir=$HOME/thesis"
+    ssh -f doug-and-duck "${notebook_up}" &&
 
     # wait for notebook to get started
     echo "spinning up notebook on doug-and-duck..."
