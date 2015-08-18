@@ -219,6 +219,7 @@ export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 [ -f /home/aaron/.travis/travis.sh ] && source /home/aaron/.travis/travis.sh
 # fzf: https://github.com/junegunn/fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_COMMAND='ag -l -g ""'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
