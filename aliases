@@ -18,7 +18,7 @@ alias rm='rm -i'
 alias v="$(which vim)"
 alias vi="$(which vim)"
 # testing!!!
-# alias vim='nvim'
+alias vim='nvim'
 
 # use hub (see ~/src/hub)
 alias git=hub
@@ -121,7 +121,7 @@ function ytaudio {
 fe() {
   local file
   file=$(fzf --query="$1" --select-1 --exit-0)
-  [ -n "$file" ] && ${EDITOR:-vim} "$file"
+  [ -n "$file" ] && vim "$file"
 }
 
 # fd - cd to selected directory
