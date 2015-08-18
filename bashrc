@@ -200,7 +200,7 @@ if [ $HOME = '/nfs/see-fs-02_users/eeaol' ]; then
         then source /apps/.setup/bash
     fi
     # set up these apps and don't tell me about it
-    app setup ImageMagick gimp mendeley libreoffice > /dev/null
+    app setup ImageMagick gimp mendeley libreoffice ruby > /dev/null
 fi
 
 # use self compiled libraries
