@@ -11,7 +11,7 @@ esac
 # Eternal bash history.
 # ---------------------
 # Undocumented feature which sets the size to "unlimited".
-# http://stackoverflow.com/questions/9457233/unlimited-bash-history
+# http://stackoverflow.com/questions/9457234/unlimited-bash-history
 export HISTFILESIZE=
 export HISTSIZE=
 export HISTTIMEFORMAT="[%F %T] "
@@ -20,11 +20,15 @@ export HISTTIMEFORMAT="[%F %T] "
 export HISTFILE=~/.bash_eternal_history
 # Force prompt to write history after every command.
 # http://superuser.com/questions/20900/bash-history-loss
-PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 # don't put duplicate lines or lines starting with space in the
 # history.  See bash(1) for more options
-HISTCONTROL=ignoreboth
+export HISTCONTROL=ignoreboth
+
+# ignore some common commands
+export HISTIGNORE="&:ls:clear:pwd:exit"
+
 # don't modify history
 bind 'revert-all-at-newline on'
 
